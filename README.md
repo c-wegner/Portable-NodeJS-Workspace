@@ -26,7 +26,89 @@ This repository serves as a template for quickly setting up a portable Node.js d
 ## Getting Started
 
 Follow these steps to set up your portable Node.js development environment using this template repository:
+# Portable Node.js Project Template (Windows)
 
+This is a fully self-contained, portable Node.js project setup for Windows. It does **not require global Node.js or npm**—everything is embedded in the project directory.
+
+## 🚀 How to Use
+
+### 1. Clone This Template for a New Project
+Use PowerShell:
+
+```powershell
+& "D:\tools\git\bin\git.exe" clone https://github.com/c-wegner/Portable-NodeJS-Workspace.git D:\_projects\YourNewProject
+cd D:\_projects\YourNewProject
+2. Initialize Your Project
+powershell
+Copy
+Edit
+.\scripts\npm.cmd init -y
+This creates a local package.json inside your project folder.
+
+3. Install Dependencies
+To install packages locally into the project (not globally):
+
+powershell
+Copy
+Edit
+.\scripts\npm.cmd install <package-name>
+Example:
+
+powershell
+Copy
+Edit
+.\scripts\npm.cmd install express
+4. Add Your Application Code
+Create your main script file if not present:
+
+powershell
+Copy
+Edit
+New-Item -Path .\src\index.js -ItemType File
+Then edit it, for example:
+
+js
+Copy
+Edit
+console.log("Hello from portable Node!");
+5. Run Your Code Using Local Node
+powershell
+Copy
+Edit
+.\scripts\node.cmd src\index.js
+📁 Folder Structure
+pgsql
+Copy
+Edit
+/YourProject
+├── /node               ← Embedded Node.js binary
+├── /node_modules       ← Local packages
+├── /scripts            ← Local launch scripts (npm.cmd, node.cmd)
+├── /src                ← Your app code
+├── package.json
+├── package-lock.json
+└── README.md
+♻️ Reusing This Template
+Copy this folder to start a new project:
+
+powershell
+Copy
+Edit
+Copy-Item -Recurse -Path D:\_projects\portableNodeTemplate -Destination D:\_projects\YourNewProject
+Inside the new project folder, run:
+
+powershell
+Copy
+Edit
+.\scripts\npm.cmd init -y
+Start coding.
+
+✅ Notes
+Works entirely without touching system Node.js or npm.
+
+Ideal for portable drives, isolated dev environments, and clean project setups.
+
+You can embed a different Node.js version by replacing the node folder.
 ### Prerequisites
 
 - **Git:** Install `Git` on your system if it's not already installed. You can download Git from _[git-scm.com](https://git-scm.com/)_.
